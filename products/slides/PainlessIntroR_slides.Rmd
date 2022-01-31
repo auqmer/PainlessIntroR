@@ -1,0 +1,415 @@
+---
+title: "Foundations of Modeling"
+subtitle: "Introduction to Models, Data Analysis, Errors, and Parameters"
+author: "William Murrah"
+institute: "Auburn University"
+date: "Spring 2022 (updated: `r Sys.Date()`)"
+output:
+  xaringan::moon_reader:
+    css: "au-xaringan.css"
+    lib_dir: libs
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      ratio: '16:9'
+---
+
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+library(knitr)
+library(mosaic)
+library(Lock5Data)
+#source(file = "code/simulateHeights.R")
+opts_chunk$set(echo = FALSE, comment = NULL)
+library(supernova)
+library(DiagrammeR)
+library(psych)
+```
+
+## Rodger's Article
+
+* What was the article about?
+* What insights did you gain?
+* What questions do you have?
+
+---
+class: large inverse middle center
+
+# Models in Science
+
+---
+class: large 
+
+## Goals of science
+
+
+1. Describe
+2. Predict
+3. Explain
+
+---
+class: large
+
+## What are Scientific Models?
+
+
+> Models are explicit statements about the processes that give rise to observed data.  - *Little* (2013)
+
+> A mathematical model is a set of assumptions together with implications drawn from them by mathematical reasoning. - *Neimark and Estes* (1967 quoted in Rodgers, 2010)
+
+* Models are representations of how our key constructs are related.
+* They can be narrative, graphical, or mathematical. 
+* Models   
+       1. match reality in some way, and,   
+       2. are simpler than reality.
+
+---
+class: large
+
+## Why do we need models?
+
+
+If we acknowledge the .red[**complexity**] and .red[**interrelatedness**] of reality, and our goal is the perfect model, we soon realize **To model anything, we would have to model everything**!
+
+--
+
+**All models are wrong, but some are useful** -*George Box*
+
+---
+class: large
+
+## Occam's Razor
+
+
+* We need to balance explanatory power (reducing error) with parsimony (simplicity)
+* We want to constantly ask: "What do we gain by adding complexity?"
+* Proportion Reduction in Error (PRE)
+
+---
+class: large
+
+## Scientific Models are NOT Oracles
+
+
+![](figures/oracle-delphi.jpg) 
+
+---
+
+## Scientific Models are Golems
+
+```{r, out.height="10%"}
+include_graphics("figures/golem.jpg")
+```
+
+
+
+---
+class: large
+
+```{r, out.width="90%"}
+include_graphics("figures/geocentric.png")
+```
+
+---
+class: large
+## Geocentric Model
+
+
+```{r, out.width="90%"}
+include_graphics("figures/geocentric2.png")
+```
+
+---
+class: large inverse center middle
+
+# Simple Models: Errors and Parameters
+
+
+---
+class: large
+
+## The Basic Model 
+### A narrative representation
+
+$$
+\text{DATA} = \text{MODEL} + \text{ERROR}
+$$
+
+* **DATA** = What we want to understand or explain
+* **MODEL** = A simpler representation of the DATA
+* **ERROR** = Amount by which the data fail to explain the data
+
+--
+
+What is another term for error?
+
+???
+
+Residual
+---
+class: large
+
+## A Simple Model 
+### A graphical representation
+
+```{r}
+ grViz("
+       digraph simple {
+  rankdir = LR
+  graph [overlap = true, fontsize = 10, layout = neato]
+  node [shape = box]
+  X[pos='0,0!', label=<X<sub>i</sub>>]
+  Y[pos='2,0!', label=<Y<sub>i</sub>>]
+  X -> Y[label=<&beta;>]
+  node [shape = circle]
+  e[pos='2,1!', label=<&epsilon;<sub>i</sub>>]
+  e -> Y
+}
+") 
+```
+
+---
+class: large
+
+## A Simple Model 
+### A mathematical representation
+
+$$
+\text{DATA} = \text{MODEL} + \text{ERROR}
+$$
+Population model:
+
+$$
+Y_i = \beta_0 + \varepsilon_i
+$$
+
+Sample model:
+
+$$
+y_i = b_0 + e_i
+$$
+
+---
+class: large center middle inverse
+
+# Describing Error
+
+---
+class: large
+
+## Simplest Model 
+### Zero Parameters
+
+$$
+Y_i = B_0 + \varepsilon_i
+$$
+
+Where $B_0$ is some a priori value, not based on these DATA, but provided by some theoretical consideration
+
+* e.g. temperature = 98.6 degrees
+* probability if coin is fair = .50
+* change over time = 0
+
+Not common in behavioral sciences
+
+---
+class: large
+
+## Simple Model 
+### One Parameter
+$$
+Y_i = \beta_0 + \varepsilon_i
+$$
+Where $\beta_0$ is an unknown value. The MODEL makes a constant prediction for all cases, but the value of that prediction is to be estimated from the data, so to make ERROR as small as possible.
+
+The estimated MODEL is 
+
+$$
+Y_i = b_0 + \varepsilon_i
+$$
+
+Where $b_0$ is the actual prediction made for each case, estimated from the data, minimizing ERROR.
+
+---
+class: large
+
+This estimated MODEL can also be written as
+
+$$
+\hat{Y_i} = b_0
+$$
+
+
+Note the difference between the two errors in the parameter model ( $\varepsilon_i$ ) and the estimated model ( $e_i$ ).  The latter is an estimate of the former, just as $b_0$ is an estimate of $\beta_0$.
+
+$$
+\varepsilon_i = Y_i - \beta_0
+$$
+
+$$
+e_i = Y_i - b_0 = Y_i - \hat{Y_i}
+$$
+
+---
+class: large
+
+## Measures of Central Tendency and Dispersion
+
+* Want to find best estimate of $\beta_0$ that minimizes not individual $e_i$’s but some aggregate measure of error.
+* Different ways of aggregating errors lead to different estimates - alternative measures of Central Tendency
+* Different ways of aggregating errors lead to different estimates of “Typical Error” - alternative measures of Spread
+* This is “descriptive statistics”
+
+---
+class: large
+
+## Measures of Central Tendency and Dispersion
+
+* Minimize Sum of Errors? - Why not?
+* Minimize Sum of Absolute Errors (SAE).
+	  - best estimate of $\beta_0$ is the Median
+
+* What happens in presence of extreme outlier?
+* Absolute Errors and Outliers
+* Median Absolute Deviation (MAD) as typical measure of spread (median value of $e_i$ given minimization of SAE)
+
+---
+class: large
+
+## Measures of Central Tendency and Dispersion
+
+* Minimize Sum of Squared Errors.  Why?
+    - best estimate of $\beta_0$ is the Mean
+
+* What happens in presence of outlier?
+    - Squared Errors and Outliers
+    -Mean Square Error (Variance) as typical measure of spread (mean value of $e_i^2$ given minimization of SSE)
+
+---
+class: large
+
+## Formalities of Estimation 
+### Simple Model
+
+DATA = MODEL + ERROR
+
+$$
+Y_i = \beta_0 + \varepsilon_i
+$$
+$$
+Y_i = b_0 + e_i
+$$
+$$
+\hat{Y_i} = b_0
+$$
+$$
+Y_i = \hat{Y_i} + e_i
+$$
+
+$$
+e_i = Y_i - \hat{Y_i}
+$$
+
+---
+class: large
+
+## Formalities of Estimation 
+### Simple Model
+
+* Aggregate Error: Sum of Absolute Errors
+
+$$\text{Error} = \sum_{i=1}^{n} |e_i| = \sum_{i=1}^{n}|Y_i - \hat{Y_i} | = \sum_{i=1}^{n} | Y_i - b_0|$$
+
+* Minimization estimates $\beta_0$ as the Median
+* Measure of Spread: Median Absolute Error or Median Absolute Deviation (MAD)
+
+---
+class: large
+
+## Formalities of Estimation 
+### Simple Model
+
+* Aggregate Error: Sum of Squared Errors
+
+$$\text{Error} = \sum_{i=1}^{n} e_i^2 = \sum_{i=1}^{n} (Y_i - \hat{Y_i})^2 = \sum_{i=1}^{n} (Y_i - b_0)^2 = \sum_{i=1}^{n} (Y_i - \bar{Y})^2$$
+
+* Minimization estimates $\beta_0$ as the Mean
+* Measure of Spread: Mean Squared Error (Variance)
+
+---
+class: large
+
+## Mean Squared Error Estimation
+
+* Recall that if one estimated $n$ parameters, ERROR would be zero.  
+* In computation of the MSE, we want to take into account the number of parameters estimated (and the number of additional parameters that could be estimated).
+* General formula for MSE:
+
+$$\text{MSE} = \frac{ \sum_{i=1}^{n} (Y_i - \hat{Y_i})^2}{n-p}$$
+
+* Square root known as the “root mean square error”
+
+---
+class: large
+
+## Mean Squared Error Estimation
+
+* In case of simple one-parameter model, $p = 1$ and 
+
+$$\hat{Y_i} = b_0 = \bar{Y}$$
+
+Accordingly, 
+
+$$\text{MSE} = \frac{ \sum_{i=1}^{n} (Y_i - \hat{Y_i})^2}{n-1} = s^2$$
+
+
+
+
+
+* And root mean square error is called the standard deviation
+* So variance is special case of MSE; MSE as unbiased measure of spread (or variance) of errors
+
+---
+class: large
+
+* Usual notion: descriptive statistics
+* Pick a measure of central tendency (mean, median, mode)
+* Pick a measure of spread
+
+* NO - pick a measure of aggregate error, estimates of $\beta_0$ follow from that, along with estimates of typical error.
+
+---
+class: large
+
+## An Example
+
+```{r}
+load("data/ermahtSP20.Rdata")
+ermaht <- ermahtSP20[ ,-4]
+describe(ermaht[ ,-1])
+cor(ermaht[ ,-1])
+```
+
+---
+class: large
+
+## Distribution of measured heights
+
+```{r}
+with(ermaht, {
+  hist(height, col = "darkgrey", probability = TRUE,
+       xlim = c(12*4, 12*8), xlab = "Height (in)")
+  curve(dnorm(x, mean(height), sd(height)), add = TRUE)
+  curve(dnorm(x, 64, 4), add = TRUE, col = "blue")
+})
+```
+
+---
+class: large
+
+
+```{r}
+source("code/calc_error.R")
+ad <- calc_error(ermaht$height, yhat = median(ermaht$height), errorMeth = "SAE", 
+                 raw = TRUE)
+hist(ad, col = "darkgrey")
+```

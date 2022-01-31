@@ -1,0 +1,175 @@
+a, a > code {
+  color: rgb(249, 38, 114);
+  text-decoration: none;
+}
+.footnote {
+  position: absolute;
+  bottom: 3em;
+  padding-right: 4em;
+  font-size: 90%;
+}
+.remark-code-line-highlighted     { background-color: #ffff88; }
+
+.remark-slide {
+  color:  #03244d;
+}
+
+/* Content Font Size */
+
+<style type="text/css">
+.remark-slide-content {
+    font-size: 120px;
+    padding: 1em 4em 1em 4em;
+}
+</style>
+
+.inverse {
+  background-color: #272822;
+  color: #d6d6d6;
+  text-shadow: 0 0 20px #333;
+}
+.inverse h1, .inverse h2, .inverse h3 {
+  color: #f68026; /* #f3f3f3*/
+}
+
+/* Two-column layout */
+.left-column {
+  color: #777;
+  width: 20%;
+  height: 92%;
+  float: left;
+}
+.left-column h2:last-of-type, .left-column h3:last-child {
+  color: #000;
+}
+.right-column {
+  width: 75%;
+  float: right;
+  padding-top: 1em;
+}
+.pull-left {
+  float: left;
+  width: 47%;
+}
+.pull-right {
+  float: right;
+  width: 47%;
+}
+.pull-right ~ * {
+  clear: both;
+}
+img, video, iframe {
+  max-width: 100%;
+}
+blockquote {
+  border-left: solid 5px lightgray;
+  padding-left: 1em;
+}
+.remark-slide table {
+  margin: auto;
+  border-top: 1px solid #666;
+  border-bottom: 1px solid #666;
+}
+.remark-slide table thead th { border-bottom: 1px solid #ddd; }
+th, td { padding: 5px; }
+.remark-slide thead, .remark-slide tfoot, .remark-slide tr:nth-child(even) { background: #eee }
+
+@page { margin: 0; }
+@media print {
+  .remark-slide-scaler {
+    width: 100% !important;
+    height: 100% !important;
+    transform: scale(1) !important;
+    top: 0 !important;
+    left: 0 !important;
+  }
+}
+
+/* inverse */
+
+.inverse {
+  background-color: #496e9c;
+  /*color: #dd550c; */
+  text-shadow: 0 0 20px #333;
+}
+
+/* New */
+
+.remark-code, .remark-inline-code { font-family: 'Source Code Pro', 'Lucida Console', Monaco, monospace;}
+
+/* Add image and change bg color */
+.title-slide {
+  background-image: url(au.png);
+  background-position: 9% 15%; /* 9% 15%*/
+  background-size: 200px; /* 200px */
+  background-color:  #496e9c;
+  padding-left: 100px;  /* delete this for 4:3 aspect ratio */
+}
+
+/* H1 fonts */
+.title-slide h1 {
+  color:  #f68026; /* Secondary Orange */
+  padding-top: 250px;
+  font-weight: normal;
+  font-size: 45px;
+  line-height: 0.05;
+  text-align: left;
+  text-shadow: 0 0 20px #03244d;
+  padding-bottom: 18px;
+  margin-bottom: 18px;
+}
+
+/* H2 fonts */
+.title-slide h2 {
+  color: #03244d; /* Primary Blue */ 
+  font-size: 35px;
+  text-align: left;
+  text-shadow:  0 0 20px #f68026;
+  padding-top: 0px;
+  margin-top: 0px;
+}
+
+/* H3 fonts */
+.title-slide h3 {
+  font-size: 28px;
+  font-weight: normal;
+  color: #A9A9A9 ; /* #AAA59F */
+  text-align: left;
+  text-shadow: none;
+  padding: 0px;
+  margin: 0px;
+  line-height: 1;
+}
+
+/* Remove slide count */
+.title-slide .remark-slide-number {
+  text-shadow: none;
+}
+
+h1 {
+  color: #0D395F;
+}
+
+h2 {
+  color: #0D395F;
+}
+h3 {
+  color: #4C4B4C;
+}
+
+.large { font-size: 200% }
+.big2 { font-size: 175% }
+.big1 { font-size: 150%}
+.small { font-size: 70% }
+.smaller { font-size: 50% }
+.tiny { font-size: 20% }
+
+.red { color: red; }
+.green { color: green; }
+.blue { color: blue; }
+.gray { color: gray; }
+
+/*Change code chunk background color*/
+.hljs-github .hljs {
+    background: #E0E0E0;
+}
