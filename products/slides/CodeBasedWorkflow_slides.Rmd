@@ -1,6 +1,6 @@
 ---
 title: "A Painless Introduction to R"
-subtitle: " As a Programming Language"
+subtitle: " A Code-Based Workflow"
 author: "William Murrah"
 institute: "Auburn University"
 date: "Spring 2022 (updated: `r Sys.Date()`)"
@@ -13,7 +13,7 @@ output:
       highlightLines: true
       ratio: '16:9'
 ---
-
+class: large
 ```{r, echo=FALSE, warning=FALSE, message=FALSE}
 library(knitr)
 library(mosaic)
@@ -25,18 +25,15 @@ library(DiagrammeR)
 library(psych)
 library(png)
 ```
-class: big1
 ## Overview
 
-This introduction to the R statistical programming language is aimed at achieving three goals.
+This introduction to the plain-text workflow is aimed at achieving three goals.
 
 * First, to describe why programming languages are becoming so important in research and what advantages they offer of other statistical software.  
 
-* Second,to introduce those considering R as a platform for research and statistics. 
+* Second, overview what a **plain-text workflow** looks like
 
-* Third, to demonstrate why R is a great language to start to learn basic programming skills for applied researchers.
-
-
+* Third, show you what such a workflow would look like in R
 
 ---
 class: big1
@@ -127,17 +124,31 @@ class: large
 * We now have complex **methods** to analyze these data
 * We **need** more researchers who can use these tools and methods to generate **knowledge**.
 
+
 --
-### This requires us to rethink how we conduct (and teach researchers to conduct) research.
+This requires us to rethink how we conduct (and teach researchers to conduct) research: Hence, **The plain-text workflow**
+
 ---
 class: inverse center middle
 
-## What would such a new workflow entail?
-
+## What does a plain-text workflow entail?
 
 ---
 class: large
-## Characteristics of Modern Research Workflow
+## In an Nutshell
+
+The plain-text workflow:
+
+--
+* Stores information in **plain-text data file** (`.csv`,`.txt`, `.dat`, etc.)
+
+--
+* Processes this data in an programming language using **plain-text scripts**
+
+---
+class: large
+## Characteristics of the Plain-Text Workflow
+
 
 1. **Transparency** - Everything is well documented (code scripts) and accessible (e.g. plain-text and preferably open-source)
 
@@ -147,61 +158,20 @@ class: large
 
 4. **Efficiency** - Workflow should minimize wasting of time. 
 
-          
 ---
-class: inverse center middle
+class: large
+## Principles of Coding
 
-## What makes R a good programming language for data analysis?
-
-
----
-class: big1
-## What is R?
-
-* "R is a free software environment for statistical computing and graphics. It compiles and runs on a wide variety of UNIX platforms, Windows and MacOS" - r-project.org
-
-* R is an integrated suite of software facilities for data manipulation, calculation and graphical display. It includes:
-    + an effective data handling and storage facility,
-    + a suite of operators for calculations on arrays, in particular matrices,
-    + a large, coherent, integrated collection of intermediate tools for data analysis,
-    + graphical facilities for data analysis and display either on-screen or on hardcopy, and
-    + a well-developed, simple and effective programming language which includes conditionals, loops, user-defined recursive functions and input and output facilities.
-    
----
-class: big1
-## R is an implementation of the S programming language
-
-* S was created around 1976 at Bell Labs
-* R was first implemented from S in 1991 by statisticians Ross Ihaka and Robert Gentleman at the University of Auckland, New Zealand.
-* In 1995, statistician Martin Machler convinced Ihaka and Gentleman to make R a free and open-source software under the GNU General Public License.
-* The Comprehensive R Archive Network (CRAN) was officially announced on 23 April 1997.
-
+1. Document Everything - The time spent, will pay for itself in the long run.
+2. **DRY**/**WET** - live the mantra "**D**on't **R**epeat **Y**ourself" or you will have to "**W**rite **E**verything **T**wice".
+3. Modularity - Code scripts do one thing, but can often be used in multiple aspects of project
+4. Version Control - Be able to revert to prior versions of project and be able to branch new ideas
+5. Sourcing - Call one script, function,  or data file from another script. A good way to reuse code.
 
 ---
-class: inverse
+class: Large
+## Resources
 
+QMER Website: https://aub.ie/qmer
 
-
-
-```{r, out.height="90%"}
-include_graphics("figures/Rapp.jpg")
-```
-
-
-
----
-class: inverse
-```{r, out.width="120%"}
-include_graphics("figures/Rstudio.jpg")
-```
-
-
----
-class: big1
-## R is a Powerful Statistical Programming Language
-
-* R was created by statisticians for statistics
-* R has exceptional graphics
-* R has over 18,000 user create packages
-* R is free and open-source
-
+R based QMER website:  https://statistical-thinking.com
